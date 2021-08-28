@@ -1,7 +1,7 @@
 import TextField from "@material-ui/core/TextField"
 import React, { useEffect, useRef, useState } from "react"
 import io from "socket.io-client"
-import "./App.css"
+import "./admin.css"
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 function Admin() {
 	const [ state, setState ] = useState({ message: "", name: "" ,id:"" })
@@ -35,18 +35,26 @@ function Admin() {
 		setState({ message: "", name })
 		
 	}
-    const acceptbtn=(e)=>{
+    const acceptbtn=(idx,e)=>{
+
+	
+		// let afterAcceptId;
+		// chat.forEach((item)=>{	
+	    //    if(item.id == chat[acceptId].id){
+		// 	   afterAcceptId=item.id;
+		//    }
+		// })
+		// console.log('afterAcceptId',afterAcceptId);
+		// console.log('message',chat[acceptId].message);
+	    socketRef.current.emit("accept_msg", ({accept:'Accept',gotmsg:chat[idx].message}))
 		
-	 socketRef.current.emit("accept_msg", ({accept:'accept',gotmsg:chat[0].message}))
-	 console.log('asmklasmklnsdnjksnljn',chat[0].message);
-  
-		console.log('accept');
+        
 		e.preventDefault()
 	}
-	const ignorebtn=(e)=>{
+	const ignorebtn=(idx,e)=>{
 
-		socketRef.current.emit("ignore_msg", ({ignore:'ignore',gotmsg:chat[0].message}))
-	    console.log('a++++++++++++++++',chat[0].message);
+		socketRef.current.emit("ignore_msg", ({ignore:'Ignore',gotmsg:chat[idx].message}))
+	    // console.log('a++++++++++++++++',chat[0].message);
     
 		console.log('ignore');
 		e.preventDefault()
@@ -59,24 +67,27 @@ function Admin() {
 				<h3>
 					{name}: <span>{message}</span>
 				</h3>
-				<button value="accept" onClick={acceptbtn} >accept
+				<button value="accept"  onClick={(e)=>acceptbtn(index,e)} >Accept
 				
 				</button>
 
-				<button value="ignore" onClick={ignorebtn}  >ignore</button>
+				<button value="ignore" onClick={(e)=>ignorebtn(index,e)}  >Ignore</button>
 			</div>
 		))
 	}
 
 	return (
+		<>
+		<h1 className="Titleadmain" >MORS</h1>
 		<div className="card">
-			<form onSubmit={onMessageSubmit}>
-				<h1>Messenger</h1>
-				<div className="name-field">
-					<TextField name="name" onChange={(e) => onTextChange(e)} value={state.name} label="Name" />
+			<form  className= "form-admin"onSubmit={onMessageSubmit}>
+				<h1>Admin page 📬📬</h1>
+				<div className="name-field admin">
+					<TextField required name="name"  onChange={(e) => onTextChange(e)} value={state.name} label="Name" />
 				</div>
 				<div>
 					<TextField
+						required
 						name="message"
 						onChange={(e) => onTextChange(e)}
 						value={state.message}
@@ -85,13 +96,14 @@ function Admin() {
 						label="Message"
 					/>
 				</div>
-				<button>Send Message</button>
+				<button>Send Response </button>
 			</form>
-			<div className="render-chat">
-				<h1>Chat Log</h1>
+			<div className="render-chat admin-chat">
+				<h1>Tickets 📨📨</h1>
 				{renderChat()}
 			</div>
 		</div>
+		</>
 	)
 }
 

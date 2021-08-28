@@ -1,0 +1,51 @@
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 30px;
+    min-height: 30rem;
+  }
+  .form-admin {
+    max-width: 350px;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 3px 24px -8px rgba(78, 44, 44, 0.75);
+    background-color: #2e20c7;
+  }
+  
+  .admin{
+    margin-bottom: 40px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    background: transparent;
+    border-radius: 5px;
+  }
+  
+  .admin-chat {
+    max-width: 350px;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 3px 24px -8px rgba(27, 25, 25, 0.75);
+    background-color: #2e20c7;
+  }
+  
+  h3 {
+    color: #e2e2e2;
+  }
+  
+  span {
+    color: black;
+  }
+  .Titleadmain{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: #243596;
+    color: #fff;
+  }
