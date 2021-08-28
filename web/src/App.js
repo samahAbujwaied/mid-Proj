@@ -57,17 +57,19 @@ function App() {
 	}
 
 	return (
-	
+	<>
+	<h1 className="Title" >MORS</h1>
 
 		<div className="card">
 			<form onSubmit={onMessageSubmit}>
 		
-				<h1>Messenger</h1>
+				<h1>Student page 📚 📚  </h1>
 				<div className="name-field">
-					<TextField name="name" onChange={(e) => onTextChange(e)} value={state.name} label="Name" />
+					<TextField required name="name" onChange={(e) => onTextChange(e)} value={state.name} label="Name" />
 				</div>
 				<div>
 					<TextField
+						required
 						name="message"
 						onChange={(e) => onTextChange(e)}
 						value={state.message}
@@ -76,10 +78,10 @@ function App() {
 						label="Message"
 					/>
 				</div>
-				<button>Send Message</button>
+				<button>Pick Ticket</button>
 			</form>
 			<div className="render-chat">
-				<h1>Chat Log</h1>
+				<h1>Response  ⌛️ ⌛️</h1>
 				{renderChat()}
 
 				
@@ -87,14 +89,15 @@ function App() {
 
 			<section>
 			
-			{state.check &&  <h1>{state.acceptmsg} -------- {state.yourmsg}</h1>}  
+			{state.check &&  <h1 style={{color:"green"}}>{state.acceptmsg} -------- {state.yourmsg}  </h1>}  
 			</section>
 			<section>
-			{state.check2 && <h2>{state.ignoremsg} -------- {state.ignoreyourmsg} </h2>}
+			{state.check2 && <h1 style={{color:"red"}}>{state.ignoremsg} -------- {state.ignoreyourmsg} </h1>}
 		
 	     	</section>
 		
 		</div>
+		</>
 	)
 
 }
