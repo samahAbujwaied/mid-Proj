@@ -31,6 +31,7 @@ function Admin() {
 	const onMessageSubmit = (e) => {
 		const { name, message } = state
 		socketRef.current.emit("admin_msg", { name, message })
+		
 		e.preventDefault()
 		setState({ message: "", name })
 		
@@ -46,14 +47,14 @@ function Admin() {
 		// })
 		// console.log('afterAcceptId',afterAcceptId);
 		// console.log('message',chat[acceptId].message);
-	    socketRef.current.emit("accept_msg", ({accept:'Accept',gotmsg:chat[idx].message}))
+	    socketRef.current.emit("accept_msg", ({accept:'Accepted',gotmsg:chat[idx].message}))
 		
         
 		e.preventDefault()
 	}
 	const ignorebtn=(idx,e)=>{
 
-		socketRef.current.emit("ignore_msg", ({ignore:'Ignore',gotmsg:chat[idx].message}))
+		socketRef.current.emit("ignore_msg", ({ignore:'Ignored',gotmsg:chat[idx].message}))
 	    // console.log('a++++++++++++++++',chat[0].message);
     
 		console.log('ignore');
@@ -67,11 +68,11 @@ function Admin() {
 				<h3>
 					{name}: <span>{message}</span>
 				</h3>
-				<button value="accept"  onClick={(e)=>acceptbtn(index,e)} >Accept
+				<button value="accept" style={{marginRight:"15px" , backgroundColor:"green" , color:"white"}}  onClick={(e)=>acceptbtn(index,e)} >Accept
 				
 				</button>
 
-				<button value="ignore" onClick={(e)=>ignorebtn(index,e)}  >Ignore</button>
+				<button value="ignore" style={{marginRight:"15px" , backgroundColor:"red" , color:"white"}} onClick={(e)=>ignorebtn(index,e)}  >Ignore</button>
 			</div>
 		))
 	}
