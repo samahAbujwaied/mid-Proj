@@ -79,7 +79,7 @@ function Admin() {
 
 	return (
 		<>
-		<h1 className="Titleadmain" >MORS</h1>
+		<h1 className="Titleadmain" >Admin MORS</h1>
 		<div className="card">
 			<form  className= "form-admin"onSubmit={onMessageSubmit}>
 				<h1>Admin page 📬📬</h1>
