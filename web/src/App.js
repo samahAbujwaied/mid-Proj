@@ -38,6 +38,7 @@ function App() {
 	const onMessageSubmit = (e) => {
 		const { name, message } = state
 		socketRef.current.emit("client_msg", { name, message })
+		socketRef.current.emit("admin_msg", { name, message })
 		e.preventDefault()
 		setState({ message: "", name })
 		
@@ -52,13 +53,14 @@ function App() {
 				</h3>
 			</div>
 		))
+		
 	
 		
 	}
 
 	return (
 	<>
-	<h1 className="Title" >MORS</h1>
+	<h1 className="Title" >Student MORS 🧑🏽‍💻</h1>
 
 		<div className="card">
 			<form onSubmit={onMessageSubmit}>
@@ -83,18 +85,19 @@ function App() {
 			<div className="render-chat">
 				<h1>Response  ⌛️ ⌛️</h1>
 				{renderChat()}
-
-				
-			</div>
-
-			<section>
+				<section>
 			
-			{state.check &&  <h1 style={{color:"green"}}>{state.acceptmsg} -------- {state.yourmsg}  </h1>}  
+			{state.check &&  <h1 style={{color:"white" , textShadow:"2px 2px 2px green"}}> Your Message {state.yourmsg} is {state.acceptmsg}  </h1>}  
 			</section>
+			
 			<section>
-			{state.check2 && <h1 style={{color:"red"}}>{state.ignoremsg} -------- {state.ignoreyourmsg} </h1>}
+			{state.check2 && <h1 style={{color:"white",textShadow:"2px 2px 2px maroon"}}> Your Message {state.ignoreyourmsg} is {state.ignoremsg} </h1>}
 		
 	     	</section>
+			</div>
+
+			
+			
 		
 		</div>
 		</>

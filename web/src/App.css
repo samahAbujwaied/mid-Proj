@@ -9,12 +9,13 @@ form {
   max-width: 350px;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0px 3px 24px -8px rgba(216, 54, 54, 0.75);
-  background-color: #a32358;
+  box-shadow: 0px 3px 24px -8px rgba(59, 82, 158, 0.301);
+  background-color:rgb(25, 110, 160);
 }
 
 .name-field {
   margin-bottom: 40px;
+ 
 }
 
 button {
@@ -28,12 +29,13 @@ button {
   max-width: 350px;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0px 3px 24px -8px rgba(236, 109, 109, 0.75);
-  background-color: #b12962;
+  box-shadow: 0px 3px 24px -8px rgba(59, 82, 158, 0.301);
+  background-color: rgb(25, 110, 160);
+  color: rgba(255, 255, 255, 0.644);
 }
 
 h3 {
-  color: #2f72da;
+  color: #1d1717;
 }
 
 span {
@@ -47,6 +49,6 @@ span {
   align-items: baseline;
   padding: 1em;
   margin-bottom: 2em;
-  background-color: #d18daf;
+  background-color: rgb(25, 110, 160);
   color: #fff;
 }
